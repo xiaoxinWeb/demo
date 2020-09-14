@@ -10,6 +10,11 @@ export default new Router({
             name: 'home',
             component: home
         },
+        {
+            path: '/HelloWorld',
+            name: 'HelloWorld',
+            component: HelloWorld
+        },
 
     ]
 })

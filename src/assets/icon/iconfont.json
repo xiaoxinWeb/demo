@@ -1,0 +1,142 @@
+{
+  "id": "1993124",
+  "name": "worder",
+  "font_family": "iconfont",
+  "css_prefix_text": "mylist",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "16208473",
+      "name": "百度",
+      "font_class": "baidu",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "3966463",
+      "name": "知乎",
+      "font_class": "zhihu",
+      "unicode": "e6c2",
+      "unicode_decimal": 59074
+    },
+    {
+      "icon_id": "6002739",
+      "name": "微博",
+      "font_class": "weibo",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "7351478",
+      "name": "微信",
+      "font_class": "weixin1",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "9297769",
+      "name": "上下",
+      "font_class": "shangxia",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "10091012",
+      "name": "qq",
+      "font_class": "qq",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "10363434",
+      "name": "二维码",
+      "font_class": "erweima",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "10984483",
+      "name": "二维码",
+      "font_class": "erweima1",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "17134131",
+      "name": "支付宝",
+      "font_class": "comegandroidAlipayGphone",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "2681530",
+      "name": "行程2",
+      "font_class": "hangcheng",
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "4440088",
+      "name": "删 除",
+      "font_class": "shanchu",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "8640761",
+      "name": "icon ／ 增加",
+      "font_class": "iconzengjia",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "15693965",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "16671115",
+      "name": "停用中",
+      "font_class": "icon_Deactivated",
+      "unicode": "e6c5",
+      "unicode_decimal": 59077
+    },
+    {
+      "icon_id": "15180803",
+      "name": "icon_横向列表",
+      "font_class": "icon_hengxiangliebiao",
+      "unicode": "e8c8",
+      "unicode_decimal": 59592
+    },
+    {
+      "icon_id": "13892282",
+      "name": "人员信息管理",
+      "font_class": "renyuanxinxiguanli",
+      "unicode": "e69a",
+      "unicode_decimal": 59034
+    },
+    {
+      "icon_id": "6997722",
+      "name": "支付宝",
+      "font_class": "weibiaoti--",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "6856515",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e71a",
+      "unicode_decimal": 59162
+    },
+    {
+      "icon_id": "14166044",
+      "name": "微博",
+      "font_class": "weibo1",
+      "unicode": "e990",
+      "unicode_decimal": 59792
+    }
+  ]
+}
