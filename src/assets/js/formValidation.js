@@ -7,6 +7,14 @@ const formValidation = {
         } else {
             callback();
         }
+    },
+    password: (rule, value, callback) => {
+        const reg = /^[^\s]*$/;
+        if (!reg.test(value)) {
+            callback("不能有特殊字符")
+        } else {
+            callback()
+        }
     }
 }
 

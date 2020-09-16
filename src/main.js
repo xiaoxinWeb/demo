@@ -13,6 +13,7 @@ import animated from 'animate.css'
 import axios from 'axios'
 import './assets/icon/iconfont.css'
 import './assets/less/media.less'
+import 'element-ui/lib/theme-chalk/display.css'
 import formValidation from './assets/js/formValidation'
 Vue.prototype.formValidation = formValidation
 Vue.config.productionTip = false

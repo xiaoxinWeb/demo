@@ -6,6 +6,97 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "2262582",
+      "name": "城市",
+      "font_class": "chengshi",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "3478409",
+      "name": "团委管理员4-01",
+      "font_class": "tuanweiguanliyuan-",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "6044604",
+      "name": "分类管理",
+      "font_class": "houtai-",
+      "unicode": "e708",
+      "unicode_decimal": 59144
+    },
+    {
+      "icon_id": "1256485",
+      "name": "右",
+      "font_class": "you1",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "9400706",
+      "name": "左",
+      "font_class": "you",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "1519003",
+      "name": "会员管理",
+      "font_class": "huiyuanguanli",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "13473111",
+      "name": "订单发布",
+      "font_class": "dingdanfabu",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "4731268",
+      "name": "销售",
+      "font_class": "xiaoshou",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "4793786",
+      "name": "医院",
+      "font_class": "yiyuan",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "7494944",
+      "name": "基础数据",
+      "font_class": "jichushuju",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "7909433",
+      "name": "系统",
+      "font_class": "xitong",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "15415740",
+      "name": "业务流程管理",
+      "font_class": "yewuliuchengguanli",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "16152359",
+      "name": "商务管理",
+      "font_class": "shangwuguanli",
+      "unicode": "e6f9",
+      "unicode_decimal": 59129
+    },
+    {
       "icon_id": "16208473",
       "name": "百度",
       "font_class": "baidu",

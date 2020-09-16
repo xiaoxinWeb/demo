@@ -1,0 +1,46 @@
+{
+    "header": [{
+            "id": 1,
+            "name": "OA系统",
+            "icon": "mylistxitong",
+            "path": "",
+            "chidred": null
+        },
+        {
+            "id": 2,
+            "name": "销售系统",
+            "icon": "mylistxiaoshou",
+            "path": "",
+            "chidred": null
+        },
+        {
+            "id": 3,
+            "name": "医院部系统",
+            "icon": "mylistyiyuan",
+            "path": "",
+            "chidred": [{
+                    "id": 4,
+                    "name": "医院申请",
+                    "icon": "mylistyewuliuchengguanli"
+                },
+                {
+                    "id": 5,
+                    "name": "业务流程",
+                    "icon": "mylistyewuliuchengguanli"
+                },
+                {
+                    "id": 6,
+                    "name": "基础数据",
+                    "icon": "mylistjichushuju"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "商务部系统",
+            "icon": "mylistshangwuguanli",
+            "path": "",
+            "chidred": null
+        }
+    ]
+}

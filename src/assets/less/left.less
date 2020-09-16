@@ -1,0 +1,41 @@
+.el-menu-item:not(.is-disabled)::after {
+    display: none;
+  }
+  .el-menu-item:not(.is-disabled):hover::after {
+      display: none;
+  }
+  .is-active::after{
+       display: none;
+  }
+  [class*=" el-icon-"], [class^=el-icon-] {  //删除了导航菜单上的小箭头
+  }
+
+     .el-menu-item:not(.is-disabled):hover{
+       animation: none;
+       color:#fff !important;
+   }
+     .el-menu-item:not(.is-disabled):hover i{
+       display: inline-block;
+       color:#fff !important;
+       animation: none;
+   }
+  
+   .el-menu-item.is-active{
+    background-color: #009688 !important;
+    position: relative;
+   }
+   .el-menu-item.is-active::before {
+    content: "";
+    width: 3px;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    position: absolute;
+    border-left: 4px solid transparent;
+    transition: all 0.3s;
+    border-color: #fff !important
+ }
+ * {
+     font-size: 14px;
+ }

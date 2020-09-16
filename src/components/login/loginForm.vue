@@ -14,6 +14,7 @@
                             margin-right: 24px;
                             cursor: pointer;
                     }
+                  
 
                 }
                 .ercode_tab {
@@ -96,7 +97,7 @@
     .el-input-group__prepend{
         border:none;
     }
-    .el-input--suffix>.el-input__inner{
+    .el-select>.el-input--suffix>.el-input__inner{
         padding: 0;
        
     }
@@ -112,6 +113,7 @@
         background: #fff;
         .el-button  span{
             font-size: 13px;
+            color:#409EFF;
         }
         .phone-btn span {
             color:#999;
@@ -215,8 +217,7 @@
             
                 <div class="tabBoxSwitch">
                     <ul class="tabBoxSwitchUl">
-                        <li class="tab-active">免密码登录</li>
-                        <li>密码登录</li>
+                        <li @click="tab_switch(index)" :class="active===index ? 'tab-active' : ''" v-for="(item,index) in Loginname" :key="index"> {{item.name}}</li>
                     </ul>
                     <div class="ercode_tab swicth-ercode">
                         <i class="iconfont mylisterweima1"></i>
@@ -226,12 +227,12 @@
                 <div class="tabContent">
                     <!-- 免密登录 -->
                     <!-- 密码登录 -->
-                    <div class="tabcont tabContentAccount">
+                    <div class="tabcont tabContentAccount" v-if="Password_free">
                         <div class="tabcontent">
                                 <div class="phoneInputGroup">
                                     <el-form-item prop="mobile_phone" >
                                     <el-input placeholder="手机号" v-model="free.mobile_phone" class="input-with-select">
-                                        <el-select v-model="areas" slot="prepend" size= "medium">
+                                        <el-select v-model="areas" slot="prepend" size= "medium" @change="selectOne">
                                           <el-option
                                             v-for="item in CountryNum"
                                             :key="item.countryName + item.number"
@@ -253,22 +254,53 @@
                                 </div>
                         </div>
                     </div>
+                    <!-- 密码登录 -->
+                    <div class="tabcont tabContentAccount"  v-if="!Password_free">
+                            <div class="tabcontent">
+                                <div class="phoneInputGroup">
+                                    <el-form-item  prop="mailbox_phone">
+                                       <el-input placeholder="手机号或账号" v-model="free.mailbox_phone" class="input-with-select">
+                                        <el-select v-model="areas" slot="prepend" size= "medium" v-if="overseas"  @change="selectOne">
+                                          <el-option
+                                            v-for="item in CountryNum"
+                                            :key="item.countryName + item.number"
+                                            :value="item.countryName + item.number"
+                                            >
+                                             </el-option>
+                                        </el-select>
+                                    </el-input>
+                                    </el-form-item>
+                                </div>
+
+                            </div>
+                            <div class="tabcontent">
+                                <div class="codeInputGroup">
+                                    <el-form-item prop="password_phone">
+                                        <el-input placeholder="密码" v-model="free.password_phone" show-password></el-input>
+                                    </el-form-item>
+                                </div>
+                            </div>
+                    </div>
+
                 </div>
                 
                 
         </div>
         <div class="login_box">
-            <el-button type="text" >
+            <el-button type="text" @click="overseasClick" >
+                <span v-show="!Password_free">
+                {{overseas?'手机号或邮箱':'海外手机号'}}
+                </span>
             </el-button>
             <el-button type="text" class="phone-btn" >
-                接收语音验证码
+                {{Password_free?'接收语音验证码':'忘记密码'}}
             </el-button>
             
         </div>
          <el-form-item>
         <el-button type="primary" class="fromSubmit" @click="submitForm('free')">
-                    登录/注册
-        </el-button>
+                    {{Password_free?'登录/注册':'登录'}}
+        </el-button> 
          </el-form-item>
          </el-form>
           <div class="SignContainer-tip">
@@ -301,6 +333,15 @@
 export default {
     data(){
         return{
+            active:"0",
+            Loginname:[
+                    {
+                        name:"免密码登录"
+                    },
+                    {
+                        name:"密码登录"
+                    }
+            ],
             Disabled:false,
             areas:"",  // 区号
             CountryNum:"",  // 全部区号
@@ -308,6 +349,8 @@ export default {
             free:{
                 mobile_phone:"",
                 code_phone:"",
+                mailbox_phone:"",
+                password_phone:"",
             },
             rules:{
                 mobile_phone:[
@@ -316,13 +359,24 @@ export default {
                 ],
                 code_phone:[
                     { required: true, message: '请输入验证码', trigger: 'blur' },
+                ],
+                mailbox_phone:[
+                    { required: true, message: '请输入手机号或邮箱', trigger: 'blur' },
+                    { required: true, validator:this.formValidation.password,message:"不能有特殊符号!",trigger:'blur'}
+                ],
+                password_phone:[
+                    { required: true, message: '密码不能为空', trigger: 'blur' },
+                    { required: true, validator:this.formValidation.password,message:"不能有特殊符号!",trigger:'blur'}
                 ]
-            }
+            },
+            Password_free:true,
+            overseas:false,
         }
     },
     mounted(){
         // 获取手机国际区号
         this.area();
+        this.tab_switch(1)
     },
     methods:{
         // 手机区号获取
@@ -342,7 +396,8 @@ export default {
         // 发送验证码
         code(){
             const _this = this;
-            _this.$refs['free'].validateField('mobile_phone',(err)=>{
+            console.log(_this.$refs['free'])
+            _this.$refs.free.validateField('mobile_phone',(err)=>{
                 if(!err){
                    _this.$parent.data = true;
                 setTimeout(function(){
@@ -376,25 +431,43 @@ export default {
         // 登录注册
         submitForm(free){
             const _this = this;
-            _this.$refs[free].validate((valid) => {
-                
-          if (valid) {
+            _this.$refs.free.validate((valid) => {
+              if (valid) {
             //   调用接口
-            if(_this.free.mobile_phone == "15000149045" && _this.free.code_phone == "660927"){
+            if(_this.free.mobile_phone == "15000149045" && _this.free.code_phone == "660927" || _this.free.mailbox_phone == "2804446445@qq.com" && _this.free.password_phone == "660927"){
                      _this.$parent.data = true;
                      setTimeout(() => {
-                          _this.$parent.data = false;
+                        _this.$router.push({name:"index"});
                      }, 3000);
-            }else {
+                }else {
                 _this.$message.error('账号密码错误')
+             }
+            }else {
+                return false;
             }
-            
-           
-          } else {
-            return false;
-          }
         })
+        },
+        // 切换免登录
+        tab_switch(index){
+            const _this = this;
+             _this.active=index;
+             if(index == 0 ){
+                //  则代表免密码登录
+                _this.Password_free = true
+             }else {
+                 _this.Password_free = false
+             }
+        },
+        // 点击切换手机号
+        overseasClick(){
+            const _this = this;
+            _this.overseas = !_this.overseas
+        },
+        // 监听select 下拉框
+        selectOne(value){
+           
         }
+    
     }
 }
 </script>
