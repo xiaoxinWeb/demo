@@ -96,7 +96,7 @@
     }
     .el-input-group__prepend{
         border:none;
-    }
+    }·
     .el-select>.el-input--suffix>.el-input__inner{
         padding: 0;
        
@@ -210,7 +210,6 @@
 </style>
 <template>
 <div>
-  
     <div class="loginForm">
           <el-form :model="free" :rules="rules" ref="free"> 
         <div class="tabBox">

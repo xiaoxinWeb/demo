@@ -1,0 +1,48 @@
+{
+    "squared": [{
+            "img": "../static/img/xiexie.png",
+            "name": "谢谢参与",
+            "active": null
+        },
+        {
+            "img": "../static/img/meinv.png",
+            "name": "美女一个",
+            "active": null
+        },
+        {
+            "img": "../static/img/baoma.png",
+            "name": "宝马一辆",
+            "active": null
+        },
+        {
+            "img": "../static/img/xianhua.png",
+            "name": "鲜花一蓝",
+            "active": null
+        },
+        {
+            "img": "../static/img/choujiang.png",
+            "name": "消耗10积分",
+            "active": 1
+        },
+        {
+            "img": "../static/img/danche.png",
+            "name": "单车一辆",
+            "active": null
+        },
+        {
+            "img": "../static/img/lianghao.png",
+            "name": "靓号一个",
+            "active": null
+        },
+        {
+            "img": "../static/img/hongbao.png",
+            "name": "500红包",
+            "active": null
+        },
+        {
+            "img": "../static/img/jidan.png",
+            "name": "鸡蛋一篮",
+            "active": null
+        }
+    ]
+}

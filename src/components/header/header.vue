@@ -39,6 +39,9 @@
        align-items: center;
        line-height: 60px;
        position: relative;
+       div {
+           display: flex;
+       }
        .logo {
            color:#D0D1D3;
            span {
@@ -74,6 +77,21 @@
            
         }
     }
+    .Collapse {
+        font-size: 20px;
+        color:#fff;
+        line-height: 60px;
+        margin-left: 60px;
+        cursor: pointer;
+    }
+    .icon-arrow {
+        transform:rotateZ(90deg);
+        transition:transform 1s,-webkit-transform 1s;
+    }
+    .icon-arrowIs {
+         transform:rotateZ(0deg);
+        transition:transform 1s,-webkit-transform 1s;
+    }
 </style>
 <template>
 
@@ -83,6 +101,7 @@
         <el-link class="logo">
             H-admin
         </el-link>
+        <i class="el-icon-s-fold Collapse" :class="CollapseIs? 'icon-arrow':'icon-arrowIsF'" @click="isCollapse"></i>
         </div>
         <!-- 设置logo -->
             <!-- 列表和头像 -->
@@ -157,18 +176,23 @@
     </div>
 </template>
 <script>
+import Bus from '../../assets/js/Bus.js'
 export default {
     data(){
         return{
                 headerlist:"",
                 activeIndex:1,
-                activeIndex2:1
+                activeIndex2:1,
+                CollapseIs:false,
         }
     },
     mounted(){
         // 获取头部内容
         this.headerTop();
 
+    },
+    created(){
+        const _this = this;
     },
     methods:{
         headerTop(){
@@ -182,6 +206,16 @@ export default {
                 
                 _this.headerlist = res.data.header
             })
+        },
+        // 点击切换左边导航栏的图标
+        isCollapse(){
+                const _this = this;
+                _this.CollapseIs = !_this.CollapseIs
+                // 兄弟节点传旨 
+                Bus.$emit("add",_this.CollapseIs);
+                // 给父组件传值
+                _this.$emit('header-vue',_this.CollapseIs)
+                console.log(Bus.$emit())
         }
     }
 
